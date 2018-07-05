@@ -9,12 +9,14 @@ LABEL maintainer="Snowind <jinks.tao@gmail.com>" \
             -e LOCAL_UMASK=022 -e DIRMESSAGE_ENABLE=YES -e USE_LOCALTIME=YES\
             -e connect_from_port_20=YES -e CHROOT_LOCAL_USER=YES \
             --name vsftpd --restart=always --cap-add SYS_ADMIN \
-            snowind/vsftpd:latest" \
-      version="0.8"
+            snowind/vsftpd:v0.8r" \
+      version="0.8r"
+
+ARG EXTRA_PACKAGES="vim"
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install vsftpd -y && \
+    apt-get install vsftpd $EXTRA_PACKAGES -y && \
     apt-get clean && \
     update-rc.d -f vsftpd remove && \
     mkdir -p /home/vsftpd
