@@ -12,7 +12,7 @@ LABEL maintainer="Snowind <jinks.tao@gmail.com>" \
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install vsftpd -y && \
+    apt-get install vsftpd locales -y && \
     apt-get clean && \
     update-rc.d -f vsftpd remove && \
     mkdir -p /home/vsftpd
