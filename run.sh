@@ -8,4 +8,4 @@ sudo docker run -d -p 20:20 -p 21:21 -p 30000-30100:30000-30100 \
             -e LOCAL_UMASK=022 -e DIRMESSAGE_ENABLE=YES -e USE_LOCALTIME=YES\
             -e connect_from_port_20=YES -e CHROOT_LOCAL_USER=YES \
             --name vsftpd --restart=always --cap-add SYS_ADMIN \
-            snowind/vsftpd:0.8r
+            snowind/vsftpd:0.9r
