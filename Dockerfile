@@ -12,6 +12,8 @@ LABEL maintainer="Snowind <jinks.tao@gmail.com>" \
             snowind/vsftpd:latest" \
       version="0.8"
 
+ENV SECURE_CHROOT_DIR /usr/share/empty
+
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install vsftpd -y && \
