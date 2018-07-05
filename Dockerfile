@@ -154,4 +154,4 @@ VOLUME /home/vsftpd
 
 EXPOSE 20 21
 
-CMD [/usr/sbin/init.sh]
+CMD ["/usr/sbin/init.sh"]
