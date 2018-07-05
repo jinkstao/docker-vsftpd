@@ -14,6 +14,8 @@ LABEL maintainer="Snowind <jinks.tao@gmail.com>" \
 
 ARG EXTRA_PACKAGES="vim"
 
+ENV SECURE_CHROOT_DIR /usr/share/empty
+
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install vsftpd $EXTRA_PACKAGES -y && \
