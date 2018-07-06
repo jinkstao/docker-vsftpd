@@ -22,7 +22,6 @@ RUN apt-get update && \
     update-rc.d -f vsftpd remove && \
     mkdir -p /home/vsftpd
 
-COPY vsftpd /etc/pam.d/
 COPY ftpusers /etc/
 COPY startup.sh /usr/sbin/
 
