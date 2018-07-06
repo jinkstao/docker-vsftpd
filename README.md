@@ -53,6 +53,10 @@ and
 -e vsftpd_log_file=/var/log/vsftpd.log
 ```
 
+- **Startup Script**
+
+The startup script is located at ```/usr/sbin/startup.sh``` and the image will be launched through it. If you have a startup command (such as ```mount --bind```) that you need to add, add it to the vsftpd process startup command.
+
 - **Update**
 
 This project will be continuously updated, so stay tuned!
