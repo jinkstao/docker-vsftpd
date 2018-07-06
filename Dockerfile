@@ -14,6 +14,7 @@ LABEL maintainer="Snowind <jinks.tao@gmail.com>" \
 
 ARG EXTRA_PACKAGES="vim"
 
+ENV LISTEN YES
 ENV SECURE_CHROOT_DIR /usr/share/empty
 
 RUN apt-get update && \
