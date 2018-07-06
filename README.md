@@ -6,7 +6,7 @@ This vsftpd docker image is based on Debian 9. It is so small that no default co
 
 ## Usage
 
-- **Quick experience**
+- **Quick Start**
 
 ```shell
 sudo docker run -d -p 20:20 -p 21:21 -p 30000-30100:30000-30100 \
@@ -57,6 +57,6 @@ and
 
 The startup script is located at ```/usr/sbin/startup.sh``` and the image will be launched through it. If you have a startup command (such as ```mount --bind```) that you need to add, add it to the vsftpd process startup command.
 
-- **Update**
+## Update
 
 This project will be continuously updated, so stay tuned!
