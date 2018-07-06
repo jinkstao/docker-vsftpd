@@ -12,6 +12,7 @@ LABEL maintainer="Snowind <jinks.tao@gmail.com>" \
             snowind/vsftpd:v0.9" \
       version="0.92"
 
+ENV LISTEN YES
 ENV SECURE_CHROOT_DIR /usr/share/empty
 
 RUN apt-get update && \
