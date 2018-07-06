@@ -21,7 +21,8 @@ RUN apt-get update && \
     apt-get install vsftpd $EXTRA_PACKAGES -y && \
     apt-get clean && \
     update-rc.d -f vsftpd remove && \
-    mkdir -p /home/vsftpd
+    mkdir -p /home/vsftpd && \
+    mv /etc/vsftpd.conf /etc/vsftpd.conf.bak
 
 COPY vsftpd /etc/pam.d/
 COPY ftpusers /etc/
