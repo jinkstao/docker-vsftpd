@@ -1,6 +1,6 @@
-FROM debian:9
+FROM debian:9-slim
 LABEL maintainer="Snowind <jinks.tao@gmail.com>" \
-      description="vsftpd docker image based on debian 9" \
+      description="vsftpd docker image based on debian 9-slim" \
       usage="sudo docker run -d -p 20:20 -p 21:21 -p 30000-30100:30000-30100 \
             -v /home/vsftpd:/home/vsftpd \
             -e PASV_ADDRESS=127.0.0.1 \
@@ -9,29 +9,27 @@ LABEL maintainer="Snowind <jinks.tao@gmail.com>" \
             -e LOCAL_UMASK=022 -e DIRMESSAGE_ENABLE=YES -e USE_LOCALTIME=YES\
             -e connect_from_port_20=YES -e CHROOT_LOCAL_USER=YES \
             --name vsftpd --restart=always --cap-add SYS_ADMIN \
-            snowind/vsftpd:v0.9r" \
-      version="0.9r"
-
-ARG EXTRA_PACKAGES="vim"
+            snowind/vsftpd:v1.0" \
+      version="1.0"
 
 ENV LISTEN YES
 ENV SECURE_CHROOT_DIR /usr/share/empty
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install vsftpd $EXTRA_PACKAGES -y && \
+    apt-get install vsftpd -y && \
     apt-get clean && \
     update-rc.d -f vsftpd remove && \
     mkdir -p /home/vsftpd
 
 COPY vsftpd /etc/pam.d/
 COPY ftpusers /etc/
-COPY init.sh /usr/sbin/
+COPY startup.sh /usr/sbin/
 
-RUN chmod +x /usr/sbin/init.sh
+RUN chmod +x /usr/sbin/startup.sh
 
 VOLUME /home/vsftpd
 
 EXPOSE 20 21
 
-CMD ["/usr/sbin/init.sh"]
+CMD ["/usr/sbin/startup.sh"]
