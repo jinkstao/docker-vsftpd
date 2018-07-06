@@ -9,7 +9,7 @@ LABEL maintainer="Snowind <jinks.tao@gmail.com>" \
             -e LOCAL_UMASK=022 -e DIRMESSAGE_ENABLE=YES -e USE_LOCALTIME=YES\
             -e connect_from_port_20=YES -e CHROOT_LOCAL_USER=YES \
             --name vsftpd --restart=always --cap-add SYS_ADMIN \
-            snowind/vsftpd:v0.92" \
+            snowind/vsftpd:v0.9" \
       version="0.92"
 
 ENV SECURE_CHROOT_DIR /usr/share/empty
