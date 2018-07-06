@@ -9,10 +9,8 @@ LABEL maintainer="Snowind <jinks.tao@gmail.com>" \
             -e LOCAL_UMASK=022 -e DIRMESSAGE_ENABLE=YES -e USE_LOCALTIME=YES\
             -e connect_from_port_20=YES -e CHROOT_LOCAL_USER=YES \
             --name vsftpd --restart=always --cap-add SYS_ADMIN \
-            snowind/vsftpd:latest" \
-      version="0.8"
-
-ENV SECURE_CHROOT_DIR /usr/share/empty
+            snowind/vsftpd:v0.8" \
+      version="0.81"
 
 RUN apt-get update && \
     apt-get upgrade -y && \
