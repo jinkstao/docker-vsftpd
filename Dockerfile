@@ -10,11 +10,9 @@ LABEL maintainer="Snowind <jinks.tao@gmail.com>" \
             -e connect_from_port_20=YES -e CHROOT_LOCAL_USER=YES \
             --name vsftpd --restart=always --cap-add SYS_ADMIN \
             snowind/vsftpd:v0.8r" \
-      version="0.8r"
+      version="0.81r"
 
 ARG EXTRA_PACKAGES="vim"
-
-ENV SECURE_CHROOT_DIR /usr/share/empty
 
 RUN apt-get update && \
     apt-get upgrade -y && \
