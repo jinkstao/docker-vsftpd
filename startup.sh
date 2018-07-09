@@ -390,4 +390,4 @@ if [ ! -d "$SECURE_CHROOT_DIR" ]; then
 fi
 
 # Execute vsftpd server
-/usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf
+/usr/sbin/vsftpd $CONFIG_FILE
