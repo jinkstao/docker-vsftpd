@@ -9,8 +9,8 @@ LABEL maintainer="Snowind <jinks.tao@gmail.com>" \
             -e LOCAL_UMASK=022 -e DIRMESSAGE_ENABLE=YES -e USE_LOCALTIME=YES\
             -e connect_from_port_20=YES -e CHROOT_LOCAL_USER=YES \
             --name vsftpd --restart=always --cap-add SYS_ADMIN \
-            snowind/vsftpd:v1.0" \
-      version="1.0"
+            snowind/vsftpd:latest" \
+      version="1.01"
 
 ENV LANG C.UTF-8
 ENV LISTEN YES
