@@ -4,7 +4,7 @@
 CONFIG_FILE="/etc/vsftpd/vsftpd.conf"
 
 # check if config file exists
-if [ ! -a "$CONFIG_FILE" ]; then
+if [ ! -f "$CONFIG_FILE" ]; then
     # write config file
     touch $CONFIG_FILE
     if [ -n "$ALLOW_ANON_SSL" ]; then
