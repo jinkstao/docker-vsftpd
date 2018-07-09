@@ -12,6 +12,7 @@ LABEL maintainer="Snowind <jinks.tao@gmail.com>" \
             snowind/vsftpd:v1.0" \
       version="1.0"
 
+ENV LANG C.UTF-8
 ENV LISTEN YES
 ENV SECURE_CHROOT_DIR /usr/share/empty
 
