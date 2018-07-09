@@ -1,12 +1,12 @@
 #!/bin/bash
 
 #vsftpd config file
-CONFIG_FILE="/etc/vsftpd.conf"
+CONFIG_FILE="/etc/vsftpd/vsftpd.conf"
 
 # check if config file exists
 if [ ! -a "$CONFIG_FILE" ]; then
     # write config file
-    touch > $CONFIG_FILE
+    touch $CONFIG_FILE
     if [ -n "$ALLOW_ANON_SSL" ]; then
         echo "allow_anon_ssl=$ALLOW_ANON_SSL" >> $CONFIG_FILE
     fi
@@ -390,4 +390,4 @@ if [ ! -d "$SECURE_CHROOT_DIR" ]; then
 fi
 
 # Execute vsftpd server
-/usr/sbin/vsftpd /etc/vsftpd.conf
+/usr/sbin/vsftpd /etc/vsftpd/vsftpd.conf

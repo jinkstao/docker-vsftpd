@@ -7,7 +7,7 @@ LABEL maintainer="Snowind <jinks.tao@gmail.com>" \
             -e PASV_MIN_PORT=30000 -e PASV_MAX_PORT=30100 \
             -e ANONYMOUS_ENABLE=NO -e LOCAL_ENABLE=YES -e WRITE_ENABLE=YES \
             -e LOCAL_UMASK=022 -e DIRMESSAGE_ENABLE=YES -e USE_LOCALTIME=YES\
-            -e connect_from_port_20=YES -e CHROOT_LOCAL_USER=YES \
+            -e CONNECT_FROM_PORT_20=YES -e CHROOT_LOCAL_USER=YES \
             --name vsftpd --restart=always --cap-add SYS_ADMIN \
             snowind/vsftpd:latest" \
       version="1.01"
@@ -20,16 +20,19 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install vsftpd -y && \
     apt-get clean && \
-    update-rc.d -f vsftpd remove && \
-    mkdir -p /home/vsftpd
+    update-rc.d -f vsftpd remove
+
+RUN mkdir -p /home/vsftpd && \
+    mkdir -p /etc/vsftpd
 
 COPY ftpusers /etc/
-COPY startup.sh /usr/sbin/
+COPY vsftpd /etc/pam.d/
+COPY startup.sh /etc/vsftpd/
 
-RUN chmod +x /usr/sbin/startup.sh
+RUN chmod +x /etc/vsftpd/startup.sh
 
 VOLUME /home/vsftpd
 
 EXPOSE 20 21
 
-CMD ["/usr/sbin/startup.sh"]
+CMD ["etc/vsftpd/startup.sh"]
