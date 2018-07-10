@@ -9,8 +9,7 @@ LABEL maintainer="Snowind <jinks.tao@gmail.com>" \
             -e LOCAL_UMASK=022 -e DIRMESSAGE_ENABLE=YES -e USE_LOCALTIME=YES\
             -e CONNECT_FROM_PORT_20=YES -e CHROOT_LOCAL_USER=YES \
             --name vsftpd --restart=always --cap-add SYS_ADMIN \
-            snowind/vsftpd:latest" \
-      version="1.01"
+            snowind/vsftpd:latest"
 
 ENV LANG C.UTF-8
 ENV LISTEN YES
@@ -18,7 +17,7 @@ ENV SECURE_CHROOT_DIR /usr/share/empty
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install vsftpd -y && \
+    apt-get install vsftpd --no-install-recommends -y && \
     apt-get clean && \
     update-rc.d -f vsftpd remove
 
