@@ -35,4 +35,4 @@ VOLUME /home/vsftpd
 
 EXPOSE 20 21
 
-CMD ["etc/vsftpd/startup.sh"]
+CMD ["/etc/vsftpd/startup.sh"]
